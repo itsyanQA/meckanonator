@@ -1,0 +1,33 @@
+.script {
+  display: flex;
+  flex-direction: column;
+
+  & pre {
+    pre,
+    code,
+    span {
+      font-family: consolas !important;
+    }
+  }
+
+  & button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__name {
+
+  }
+
+  &__span-and-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #abb2bf;
+    padding: 5px 10px;
+  }
+}

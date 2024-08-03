@@ -1,0 +1,73 @@
+.header {
+  padding-block: 30px;
+  background-color: var(--light-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid var(--black);
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-color: var(--black);
+    display: block;
+    transform: rotate(45deg);
+    position: absolute;
+    left: -51px;
+    top: -51px;
+  }
+
+  &__titles {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    position: relative;
+  }
+
+  & h1 {
+    text-align: center;
+    color: white;
+    font-weight: 700;
+  }
+
+  & h2 {
+    font-size: 16px;
+    font-style: italic;
+    color: var(--white);
+    text-decoration: underline;
+  }
+
+  &__cog-wrapper {
+    position: absolute;
+    height: 18px;
+    animation: rotate 4000ms linear infinite;
+    right: 5px;
+    top: 10px;
+
+    & svg {
+      fill: white;
+    }
+  }
+
+  &__github-wrapper {
+    position: absolute;
+    left: 6px;
+    top: 14px;
+    height: 19px;
+
+    & svg {
+      fill: white;
+      width: 23px;
+      height: 23px;
+    }
+
+    & button {
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+    }
+  }
+}

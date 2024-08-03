@@ -1,0 +1,48 @@
+.steps {
+  background-color: rgb(40, 44, 52);
+  padding: 10px 30px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__choose-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__types {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  &__button {
+    border: none;
+    background-color: var(--light-blue);
+    cursor: pointer;
+    color: var(--white);
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: 500;
+    width: 100%;
+    transition: outline 250ms ease-in;
+
+    &--active {
+      outline: 5px solid darkgreen;
+    }
+  }
+
+  & ol {
+    padding-inline: 20px;
+  }
+
+  &__steps-wrapper {
+    animation: fade-in 250ms ease-in;
+  }
+}
