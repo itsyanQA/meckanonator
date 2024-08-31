@@ -13,19 +13,26 @@ export const SCRIPT_CONTENT = `function getMonthlyReportTimes() {
 }
 
 async function setMonthlyReportTimes() {
-  const insertRows = document.querySelectorAll(".insert-row");
+  const insertRows = document.querySelectorAll("a.insert-row");
 
   for (let i = 0; i < insertRows.length; i++) {
     const isWeekend = ["ו", "ש"].includes(document.querySelectorAll(".employee-information > p")[i].textContent.split(" ")[1]);
+    const isHoursAlreadyFilled =
+      document.querySelectorAll("tr span.checkin")[i].textContent === "09:00" &&
+      document.querySelectorAll("tr span.checkout")[i].textContent === "18:00";
 
-    if (!isWeekend) {
+      console.log(document.querySelectorAll("tr span.checkin")[i].textContent === "09:00");
+
+    if (!isWeekend && !isHoursAlreadyFilled) {
       insertRows[i].click();
       const checkInInputElements = document.querySelector(".report-manual-entry.checkin-str");
       const checkOutInputElements = document.querySelector(".report-manual-entry.checkout-str");
-      checkInInputElements.value = "09:00";
-      checkOutInputElements.value = "18:00";
-      confirmRow(i);
-      await sleep(250);
+      if (!checkInInputElements.value && !checkOutInputElements.value) {
+        checkInInputElements.value = "09:00";
+        checkOutInputElements.value = "18:00";
+        confirmRow(0);
+        await sleep(250);
+      }
     }
   }
 }
